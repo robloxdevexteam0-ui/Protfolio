@@ -1,0 +1,205 @@
+/* --- GLOBAL RESET --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #050505;
+    color: white;
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+/* --- BACKGROUND STARS --- */
+.stars, .stars2 {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: transparent;
+    z-index: -1;
+}
+
+.stars { width: 1px; height: 1px; box-shadow: 10vw 10vh #fff, 20vw 80vh #fff, 80vw 10vh #fff, 40vw 40vh #fff, 60vw 90vh #fff, 10vw 90vh #fff; animation: animStar 50s linear infinite; }
+.stars2 { width: 2px; height: 2px; box-shadow: 30vw 20vh #888, 70vw 50vh #888, 50vw 80vh #888; animation: animStar 100s linear infinite; }
+
+@keyframes animStar {
+    from { transform: translateY(0px); }
+    to { transform: translateY(-2000px); }
+}
+
+/* --- HERO SECTION --- */
+.hero-section {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.glass-card {
+    width: 90%;
+    max-width: 480px;
+    background: rgba(15, 15, 15, 0.7);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 24px;
+    padding: 50px 30px;
+    text-align: center;
+    box-shadow: 0 0 60px rgba(0, 0, 0, 0.9);
+    animation: fadeIn 1.5s ease;
+}
+
+.profile-img {
+    width: 130px;          
+    height: 130px;         
+    border-radius: 50%;    
+    object-fit: cover;     
+    border: 3px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 20px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+}
+
+h1 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: #ffffff;
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.6); 
+}
+
+.bio {
+    color: #ccc;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 35px;
+    font-weight: 300;
+}
+
+/* --- SOCIAL ICONS --- */
+.social-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    margin-top: 10px;
+}
+
+.social-icons a {
+    color: white;
+    font-size: 2.2rem; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: transform 0.3s, color 0.3s;
+}
+
+.custom-icon {
+    width: 1em;
+    height: 1em;
+    fill: currentColor; 
+    vertical-align: middle; 
+}
+
+.social-icons a:hover {
+    transform: scale(1.2);
+    color: #a8a8ff; 
+    text-shadow: 0 0 15px #a8a8ff;
+}
+
+.social-icons a:hover .custom-icon {
+    filter: drop-shadow(0 0 5px #a8a8ff);
+}
+
+/* --- WORK SECTION --- */
+.work-section {
+    padding: 50px 20px;
+    max-width: 1100px;
+    margin: 0 auto;
+    min-height: 100vh;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    margin-top: 50px;
+    color: #fff;
+    text-shadow: 0 0 10px rgba(255,255,255,0.3);
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 1s ease;
+}
+
+.subsection-label {
+    display: block;
+    text-align: center;
+    font-size: 1rem;
+    color: #888;
+    margin-bottom: 30px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 1s ease;
+}
+
+/* Grid for Media (Videos & Images) */
+.media-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    margin-bottom: 60px;
+}
+
+.media-card {
+    background: rgba(20, 20, 20, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    overflow: hidden; 
+    position: relative;
+    aspect-ratio: 16/9; 
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    
+    /* Animation Setup */
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out, border-color 0.3s;
+}
+
+.media-card:hover {
+    border-color: rgba(168, 168, 255, 0.5);
+    box-shadow: 0 0 20px rgba(168, 168, 255, 0.2);
+}
+
+.media-card video, 
+.media-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    display: block;
+}
+
+/* Animation Classes */
+.show { opacity: 1 !important; transform: translateY(0) !important; }
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+.scroll-down {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: bounce 2s infinite;
+    opacity: 0.5;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {transform: translateX(-50%) translateY(0);}
+    40% {transform: translateX(-50%) translateY(-10px);}
+    60% {transform: translateX(-50%) translateY(-5px);}
+}
